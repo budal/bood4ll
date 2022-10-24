@@ -171,15 +171,15 @@ const logout = () => {
                                         <div class="border-t border-gray-100" />
 
                                         <DropdownLink :href="route('profile.show')">
+                                            Notifications
+                                        </DropdownLink>
+
+                                        <DropdownLink :href="route('profile.show')">
                                             Messages
                                         </DropdownLink>
 
                                         <DropdownLink :href="route('profile.show')">
                                             Schedules
-                                        </DropdownLink>
-
-                                        <DropdownLink :href="route('profile.show')">
-                                            Kanban
                                         </DropdownLink>
 
                                         <DropdownLink v-if="$page.props.jetstream.hasApiFeatures" :href="route('api-tokens.index')">

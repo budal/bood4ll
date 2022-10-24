@@ -43,21 +43,21 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN curl -fsSL https://deb.nodesource.com/setup_current.x | bash -
 RUN apt install -y nodejs
 
-COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
-COPY ./docker/nginx/sites /etc/nginx/sites-available
+# COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
+# COPY ./docker/nginx/sites /etc/nginx/sites-available
 
-COPY ./applications /var/www
+# COPY ./applications /var/www
 
-RUN chmod 755 -R /var/www
-RUN chown -R www-data: /var/www
+# RUN chmod 755 -R /var/www
+# RUN chown -R www-data: /var/www
 
 WORKDIR ${APP_DIR}
 
-RUN composer install
-RUN cp .env.example .env
-RUN php artisan key:generate
-RUN chmod -R 777 storage
-RUN npm install
+# RUN composer install
+# RUN cp .env.example .env
+# RUN php artisan key:generate
+# RUN chmod -R 777 storage
+# RUN npm install
 # RUN php artisan migrate --seed
 
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]

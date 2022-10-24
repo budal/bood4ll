@@ -13,6 +13,10 @@ services:
       - "443:443"
       - "5173:5173"
       - "8080:8080"
+    volumes:
+      - ./docker/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./docker/nginx/sites:/etc/nginx/sites-available
+      - ./applications:/var/www
     environment:
       - APP_NAME=Bood4ll
       - DB_CONNECTION=pgsql

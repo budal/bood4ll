@@ -33,12 +33,12 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
     Route::get('/apps', function () {
-        return Inertia::render('Dashboard');
+        return Inertia::render('Apps');
     })->name('apps');
     Route::get('/reports', function () {
-        return Inertia::render('Dashboard');
+        return Inertia::render('Reports');
     })->name('reports');
     Route::get('/help', function () {
-        return Inertia::render('Dashboard');
+        return Inertia::render('Help');
     })->name('help');
 });
