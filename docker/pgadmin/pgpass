@@ -1,0 +1,1 @@
+host.docker.internal:20000:postgres:postgres:

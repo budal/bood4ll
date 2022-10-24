@@ -1,0 +1,81 @@
+version: "3.9"
+services:
+  web:
+    # image: bood4ll/php-server:latest
+    restart: always
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    networks:
+      - bood4ll_network
+    ports:
+      - "80:80"
+      - "443:443"
+      - "5173:5173"
+      - "8080:8080"
+    environment:
+      - APP_NAME=Bood4ll
+      - DB_CONNECTION=pgsql
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USERNAME=postgres
+      - DB_DATABASE=db_bood4ll
+      - CACHE_DRIVER=redis
+      - SESSION_DRIVER=redis
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - MAIL_HOST=mailhog
+      - MAIL_PORT=1025
+      - MAIL_FROM_ADDRESS="noreply@localhost"
+      - MAIL_FROM_NAME="Bood4ll System"
+    depends_on:
+      - postgres
+      - redis
+  
+  postgres:
+    image: postgres:alpine
+    restart: always
+    networks:
+      - bood4ll_network
+    volumes:
+      - /var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: db_bood4ll
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - 20000:5432
+
+  redis:
+    image: redis:alpine
+    restart: always
+    networks:
+      - bood4ll_network
+    ports:
+      - 6379:6379
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: unless-stopped  
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - ./docker/pgadmin/servers.json:/pgadmin4/servers.json
+      - ./docker/pgadmin/pgpass:/pgpass
+    ports:
+      - 5050:80
+    networks:
+      - bood4ll_network
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    restart: always
+    networks:
+      - bood4ll_network
+    ports:
+      - 1025:1025
+      - 8025:8025
+
+networks:
+  bood4ll_network:
