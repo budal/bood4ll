@@ -8,6 +8,13 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 
+const props = defineProps({
+    title: {
+        type: String,
+        default: 'Two Factor Authentication',
+    },
+});
+
 const recovery = ref(false);
 
 const form = useForm({
@@ -38,7 +45,7 @@ const submit = () => {
 </script>
 
 <template>
-    <Head title="Two-factor Confirmation" />
+    <Head :title=$t(title) />
 
     <AuthenticationCard>
         <template #logo>
@@ -65,6 +72,7 @@ const submit = () => {
                     type="text"
                     inputmode="numeric"
                     class="mt-1 block w-full"
+                    placeholder="Code"
                     autofocus
                     autocomplete="one-time-code"
                 />
@@ -79,6 +87,7 @@ const submit = () => {
                     v-model="form.recovery_code"
                     type="text"
                     class="mt-1 block w-full"
+                    placeholder="Recovery Code"
                     autocomplete="one-time-code"
                 />
                 <InputError class="mt-2" :message="form.errors.recovery_code" />

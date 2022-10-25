@@ -25,7 +25,7 @@ services:
       - DB_USERNAME=postgres
       - DB_DATABASE=db_bood4ll
       - CACHE_DRIVER=redis
-      - SESSION_DRIVER=redis
+      - SESSION_DRIVER=database
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - MAIL_HOST=mailhog

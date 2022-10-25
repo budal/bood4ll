@@ -7,14 +7,11 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 
-defineProps({
+const props = defineProps({
     title: {
         type: String,
         default: 'Reset Password',
     },
-});
-
-const props = defineProps({
     email: String,
     token: String,
 });
@@ -49,6 +46,7 @@ const submit = () => {
                     v-model="form.email"
                     type="email"
                     class="mt-1 block w-full"
+                    placeholder="Email"
                     required
                     autofocus
                 />
@@ -62,6 +60,7 @@ const submit = () => {
                     v-model="form.password"
                     type="password"
                     class="mt-1 block w-full"
+                    placeholder="Password"
                     required
                     autocomplete="new-password"
                 />
@@ -75,6 +74,7 @@ const submit = () => {
                     v-model="form.password_confirmation"
                     type="password"
                     class="mt-1 block w-full"
+                    placeholder="Confirm Password"
                     required
                     autocomplete="new-password"
                 />

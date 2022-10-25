@@ -48,6 +48,7 @@ const submit = () => {
                     v-model="form.email"
                     type="email"
                     class="mt-1 block w-full"
+                    placeholder="Email"
                     required
                     autofocus
                 />
