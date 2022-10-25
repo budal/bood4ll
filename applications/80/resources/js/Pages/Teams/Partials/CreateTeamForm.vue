@@ -21,11 +21,11 @@ const createTeam = () => {
 <template>
     <FormSection @submitted="createTeam">
         <template #title>
-            Team Details
+            {{ $t('Team Settings') }}
         </template>
 
         <template #description>
-            Create a new team to collaborate with others on projects.
+            {{ $t('Create a new team to collaborate with others on projects.') }}
         </template>
 
         <template #form>
@@ -59,7 +59,7 @@ const createTeam = () => {
 
         <template #actions>
             <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Create
+                {{ $t('Create') }}
             </PrimaryButton>
         </template>
     </FormSection>

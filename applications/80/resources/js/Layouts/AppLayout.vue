@@ -30,7 +30,7 @@ const logout = () => {
 
 <template>
     <div>
-        <Head :title="title" />
+        <Head :title=$t(title) />
 
         <Banner />
 
@@ -50,16 +50,16 @@ const logout = () => {
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                    {{ $t('Dashboard') }}
                                 </NavLink>
                                 <NavLink :href="route('apps')" :active="route().current('apps')">
-                                    Apps
+                                    {{ $t('Apps') }}
                                 </NavLink>
                                 <NavLink :href="route('reports')" :active="route().current('reports')">
-                                    Reports
+                                    {{ $t('Reports') }}
                                 </NavLink>
                                 <NavLink :href="route('help')" :active="route().current('help')">
-                                    Help
+                                    {{ $t('Help') }}
                                 </NavLink>
                             </div>
                         </div>
@@ -90,23 +90,23 @@ const logout = () => {
                                             <!-- Team Management -->
                                             <template v-if="$page.props.jetstream.hasTeamFeatures">
                                                 <div class="block px-4 py-2 text-xs text-gray-400">
-                                                    Manage Team
+                                                    {{ $t('Manage Team') }}
                                                 </div>
 
                                                 <!-- Team Settings -->
                                                 <DropdownLink :href="route('teams.show', $page.props.user.current_team)">
-                                                    Team Settings
+                                                    {{ $t('Team Settings') }}
                                                 </DropdownLink>
 
                                                 <DropdownLink v-if="$page.props.jetstream.canCreateTeams" :href="route('teams.create')">
-                                                    Create New Team
+                                                    {{ $t('Create New Team') }}
                                                 </DropdownLink>
 
                                                 <div class="border-t border-gray-100" />
 
                                                 <!-- Team Switcher -->
                                                 <div class="block px-4 py-2 text-xs text-gray-400">
-                                                    Switch Teams
+                                                    {{ $t('Switch Teams') }}
                                                 </div>
 
                                                 <template v-for="team in $page.props.user.all_teams" :key="team.id">
@@ -161,42 +161,42 @@ const logout = () => {
                                     <template #content>
                                         <!-- Autorizations Management -->
                                         <div class="block px-4 py-2 text-xs text-gray-400">
-                                            Management Area
+                                            {{ $t('Manage Authorizations') }}
                                         </div>
 
                                         <DropdownLink :href="route('profile.show')">
-                                            Users
+                                            {{ $t('Users') }}
                                         </DropdownLink>
 
                                         <DropdownLink :href="route('profile.show')">
-                                            Permissions
+                                            {{ $t('Permissions') }}
                                         </DropdownLink>
 
                                         <div class="border-t border-gray-100" />
 
                                         <!-- Account Management -->
                                         <div class="block px-4 py-2 text-xs text-gray-400">
-                                            User Area
+                                            {{ $t('Manage Account') }}
                                         </div>
 
                                         <DropdownLink :href="route('profile.show')">
-                                            Profile
+                                            {{ $t('Profile') }}
                                         </DropdownLink>
 
                                         <DropdownLink :href="route('profile.show')">
-                                            Notifications
+                                            {{ $t('Notifications') }}
                                         </DropdownLink>
 
                                         <DropdownLink :href="route('profile.show')">
-                                            Messages
+                                            {{ $t('Messages') }}
                                         </DropdownLink>
 
                                         <DropdownLink :href="route('profile.show')">
-                                            Schedules
+                                            {{ $t('Schedule') }}
                                         </DropdownLink>
 
                                         <DropdownLink v-if="$page.props.jetstream.hasApiFeatures" :href="route('api-tokens.index')">
-                                            API Tokens
+                                            {{ $t('API Tokens') }}
                                         </DropdownLink>
 
                                         <div class="border-t border-gray-100" />
@@ -204,7 +204,7 @@ const logout = () => {
                                         <!-- Authentication -->
                                         <form @submit.prevent="logout">
                                             <DropdownLink as="button">
-                                                Log Out
+                                                {{ $t('Log Out') }}
                                             </DropdownLink>
                                         </form>
                                     </template>

@@ -7,7 +7,7 @@ import Welcome from '@/Components/Welcome.vue';
     <AppLayout title="Reports">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Reports
+                {{ $t('Reports') }}
             </h2>
         </template>
 
