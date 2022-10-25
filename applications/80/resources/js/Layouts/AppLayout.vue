@@ -159,16 +159,29 @@ const logout = () => {
                                     </template>
 
                                     <template #content>
+                                        <!-- Autorizations Management -->
+                                        <div class="block px-4 py-2 text-xs text-gray-400">
+                                            Management Area
+                                        </div>
+
+                                        <DropdownLink :href="route('profile.show')">
+                                            Users
+                                        </DropdownLink>
+
+                                        <DropdownLink :href="route('profile.show')">
+                                            Permissions
+                                        </DropdownLink>
+
+                                        <div class="border-t border-gray-100" />
+
                                         <!-- Account Management -->
                                         <div class="block px-4 py-2 text-xs text-gray-400">
-                                            Manage Account
+                                            User Area
                                         </div>
 
                                         <DropdownLink :href="route('profile.show')">
                                             Profile
                                         </DropdownLink>
-
-                                        <div class="border-t border-gray-100" />
 
                                         <DropdownLink :href="route('profile.show')">
                                             Notifications

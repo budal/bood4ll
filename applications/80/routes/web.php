@@ -42,3 +42,24 @@ Route::middleware([
         return Inertia::render('Help');
     })->name('help');
 });
+
+Route::group(['middleware' => config('jetstream.middleware', ['web'])], function () {
+    $authMiddleware = config('jetstream.guard')
+            ? 'auth:'.config('jetstream.guard')
+            : 'auth';
+
+    $authSessionMiddleware = config('jetstream.auth_session', false)
+            ? config('jetstream.auth_session')
+            : null;
+
+    Route::group(['middleware' => array_values(array_filter([$authMiddleware, $authSessionMiddleware]))], function () {
+        // Route::get('/user/notifications', [UserNotificationsController::class, 'index'])
+        //             ->name('notifications.index');
+
+        // Route::get('/user/messages', [UserMessagesController::class, 'index'])
+        //             ->name('messages.index');
+
+        // Route::get('/user/schedules', [UserSchedulesController::class, 'index'])
+        //             ->name('schedules.index');
+    });
+});
