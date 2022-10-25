@@ -2,6 +2,9 @@
 import { onMounted, ref } from 'vue';
 
 defineProps({
+    placeholder: {
+        type: String,
+    },
     modelValue: String,
 });
 
@@ -22,6 +25,7 @@ defineExpose({ focus: () => input.value.focus() });
     <input
         ref="input"
         class="border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm"
+        :placeholder=$t(placeholder)
         :value="modelValue"
         @input="$emit('update:modelValue', $event.target.value)"
     >

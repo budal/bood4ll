@@ -9,6 +9,10 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 
 defineProps({
+    title: {
+        type: String,
+        default: 'Log in',
+    },
     canResetPassword: Boolean,
     status: String,
 });
@@ -30,7 +34,7 @@ const submit = () => {
 </script>
 
 <template>
-    <Head title="{{ $t('Log in') }}" />
+    <Head :title=$t(title) />
 
     <AuthenticationCard>
         <template #logo>
@@ -38,7 +42,7 @@ const submit = () => {
         </template>
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-            {{ status }}
+            {{ $t(status) }}
         </div>
 
         <form @submit.prevent="submit">

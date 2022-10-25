@@ -79,11 +79,11 @@ const clearPhotoFileInput = () => {
 <template>
     <FormSection @submitted="updateProfileInformation">
         <template #title>
-            Profile Information
+            {{ $t('Profile Information') }}
         </template>
 
         <template #description>
-            Update your account's profile information and email address.
+            {{ $t("Update your account's profile information and email address.") }}
         </template>
 
         <template #form>
@@ -113,7 +113,7 @@ const clearPhotoFileInput = () => {
                 </div>
 
                 <SecondaryButton class="mt-2 mr-2" type="button" @click.prevent="selectNewPhoto">
-                    Select A New Photo
+                    {{ $t('Select A New Photo') }}
                 </SecondaryButton>
 
                 <SecondaryButton
@@ -122,7 +122,7 @@ const clearPhotoFileInput = () => {
                     class="mt-2"
                     @click.prevent="deletePhoto"
                 >
-                    Remove Photo
+                {{ $t('Remove Photo') }}
                 </SecondaryButton>
 
                 <InputError :message="form.errors.photo" class="mt-2" />
@@ -154,7 +154,7 @@ const clearPhotoFileInput = () => {
 
                 <div v-if="$page.props.jetstream.hasEmailVerification && user.email_verified_at === null">
                     <p class="text-sm mt-2">
-                        Your email address is unverified.
+                        {{ $t('Your email address is unverified.') }}
 
                         <Link
                             :href="route('verification.send')"
@@ -163,12 +163,12 @@ const clearPhotoFileInput = () => {
                             class="underline text-gray-600 hover:text-gray-900"
                             @click.prevent="sendEmailVerification"
                         >
-                            Click here to re-send the verification email.
+                            {{ $t('Click here to re-send the verification email') }}.
                         </Link>
                     </p>
 
                     <div v-show="verificationLinkSent" class="mt-2 font-medium text-sm text-green-600">
-                        A new verification link has been sent to your email address.
+                        {{ $t('A new verification link has been sent to your email address.') }}
                     </div>
                 </div>
             </div>
@@ -176,11 +176,11 @@ const clearPhotoFileInput = () => {
 
         <template #actions>
             <ActionMessage :on="form.recentlySuccessful" class="mr-3">
-                Saved.
+                {{ $t('Saved.') }}
             </ActionMessage>
 
             <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
+                {{ $t('Save') }}
             </PrimaryButton>
         </template>
     </FormSection>

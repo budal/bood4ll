@@ -40,11 +40,11 @@ const updatePassword = () => {
 <template>
     <FormSection @submitted="updatePassword">
         <template #title>
-            Update Password
+            {{ $t('Update Password') }}
         </template>
 
         <template #description>
-            Ensure your account is using a long, random password to stay secure.
+            {{ $t('Ensure your account is using a long, random password to stay secure.') }}
         </template>
 
         <template #form>
@@ -89,11 +89,11 @@ const updatePassword = () => {
 
         <template #actions>
             <ActionMessage :on="form.recentlySuccessful" class="mr-3">
-                Saved.
+                {{ $t('Saved.') }}
             </ActionMessage>
 
             <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
+                {{ $t('Save') }}
             </PrimaryButton>
         </template>
     </FormSection>

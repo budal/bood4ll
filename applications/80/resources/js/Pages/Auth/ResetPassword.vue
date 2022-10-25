@@ -7,6 +7,13 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 
+defineProps({
+    title: {
+        type: String,
+        default: 'Reset Password',
+    },
+});
+
 const props = defineProps({
     email: String,
     token: String,
@@ -27,7 +34,7 @@ const submit = () => {
 </script>
 
 <template>
-    <Head title="Reset Password" />
+    <Head :title=$t(title) />
 
     <AuthenticationCard>
         <template #logo>
@@ -76,7 +83,7 @@ const submit = () => {
 
             <div class="flex items-center justify-end mt-4">
                 <PrimaryButton :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Reset Password
+                    {{ $t('Reset Password') }}
                 </PrimaryButton>
             </div>
         </form>

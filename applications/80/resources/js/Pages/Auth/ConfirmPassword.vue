@@ -8,6 +8,13 @@ import InputLabel from '@/Components/InputLabel.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 
+defineProps({
+    title: {
+        type: String,
+        default: 'Secure Area',
+    },
+});
+
 const form = useForm({
     password: '',
 });
@@ -26,7 +33,7 @@ const submit = () => {
 </script>
 
 <template>
-    <Head title="{{ $t('Secure Area') }}" />
+    <Head :title=$t(title) />
 
     <AuthenticationCard>
         <template #logo>
@@ -39,7 +46,7 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="password" value="{{ $t('Password') }}" />
+                <InputLabel for="password" value="Password" />
                 <TextInput
                     id="password"
                     ref="passwordInput"
