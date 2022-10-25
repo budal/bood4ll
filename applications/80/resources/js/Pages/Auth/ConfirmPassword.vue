@@ -53,6 +53,7 @@ const submit = () => {
                     v-model="form.password"
                     type="password"
                     class="mt-1 block w-full"
+                    placeholder="Password"
                     required
                     autocomplete="current-password"
                     autofocus

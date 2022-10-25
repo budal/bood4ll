@@ -106,6 +106,6 @@ return [
     |
     */
 
-    'password_timeout' => 10800,
+    'password_timeout' => env('APP_PASSWORD_TIMEOUT_SECONDS', 10800),
 
 ];

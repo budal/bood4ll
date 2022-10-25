@@ -51,6 +51,7 @@ const createTeam = () => {
                     v-model="form.name"
                     type="text"
                     class="block w-full mt-1"
+                    placeholder="Team Name"
                     autofocus
                 />
                 <InputError :message="form.errors.name" class="mt-2" />

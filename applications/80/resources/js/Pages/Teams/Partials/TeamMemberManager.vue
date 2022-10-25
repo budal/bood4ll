@@ -121,6 +121,7 @@ const displayableRole = (role) => {
                             v-model="addTeamMemberForm.email"
                             type="email"
                             class="mt-1 block w-full"
+                            placeholder="Email"
                         />
                         <InputError :message="addTeamMemberForm.errors.email" class="mt-2" />
                     </div>

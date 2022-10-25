@@ -34,7 +34,7 @@ Route::middleware([
     })->name('dashboard');
     Route::get('/apps', function () {
         return Inertia::render('Apps');
-    })->name('apps');
+    })->name('apps')->middleware(['password.confirm']);
     Route::get('/reports', function () {
         return Inertia::render('Reports');
     })->name('reports');

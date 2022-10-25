@@ -60,6 +60,7 @@ const updateTeamName = () => {
                     v-model="form.name"
                     type="text"
                     class="mt-1 block w-full"
+                    placeholder="Team Name"
                     :disabled="! permissions.canUpdateTeam"
                 />
 
