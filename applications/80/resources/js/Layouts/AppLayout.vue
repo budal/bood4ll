@@ -159,21 +159,6 @@ const logout = () => {
                                     </template>
 
                                     <template #content>
-                                        <!-- Autorizations Management -->
-                                        <div class="block px-4 py-2 text-xs text-gray-400">
-                                            {{ $t('Manage Authorizations') }}
-                                        </div>
-
-                                        <DropdownLink :href="route('profile.show')">
-                                            {{ $t('Users') }}
-                                        </DropdownLink>
-
-                                        <DropdownLink :href="route('profile.show')">
-                                            {{ $t('Teams') }}
-                                        </DropdownLink>
-
-                                        <div class="border-t border-gray-100" />
-
                                         <!-- Account Management -->
                                         <div class="block px-4 py-2 text-xs text-gray-400">
                                             {{ $t('Manage Account') }}
@@ -181,10 +166,6 @@ const logout = () => {
 
                                         <DropdownLink :href="route('profile.show')">
                                             {{ $t('Profile') }}
-                                        </DropdownLink>
-
-                                        <DropdownLink :href="route('profile.show')">
-                                            {{ $t('Notifications') }}
                                         </DropdownLink>
 
                                         <DropdownLink :href="route('profile.show')">
