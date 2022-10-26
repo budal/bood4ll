@@ -169,7 +169,7 @@ const logout = () => {
                                         </DropdownLink>
 
                                         <DropdownLink :href="route('profile.show')">
-                                            {{ $t('Permissions') }}
+                                            {{ $t('Teams') }}
                                         </DropdownLink>
 
                                         <div class="border-t border-gray-100" />
