@@ -1,15 +1,14 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { Link } from '@inertiajs/inertia-vue3';
+</script>
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-
-library.add(faUserSecret)
-
-Vue.component('font-awesome-icon', FontAwesomeIcon)
-Vue.config.productionTip = false
+<script>
+export default {
+    props: {
+        items: Object,
+    },
+}
 </script>
 
 <template>
@@ -25,28 +24,29 @@ Vue.config.productionTip = false
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <div v-if="items">
                         <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
-                            <div class="mt-8 text-2xl">
-                                Selecione abaixo qual aplicação você deseja utilizar
+                            <div class="mt-2 text-2xl">
+                                {{ $t('Select the app you want to use') }}
                             </div>
 
                             <div class="mt-6 text-gray-500">
-                                Os aplicativos liberados variam conforme os grupos dos quais participa, cujo acesso se encontra no canto superior direito de sua tela. 
+                                {{ $t('Apps are disponible according to the groups that do you participate, whose access is located in the upper right corner of your screen.')}} 
                             </div>
                         </div>
-
                         <div class="p-3 bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-3">
-                            <Link v-for="item in items" :href="route(item.route)" class="m-2 border duration-300 hover:bg-gray-200 hover:scale-110">
+                            <Link v-for="item in items" :href="route(item.route)" class="m-2 border duration-300 hover:bg-gray-200 hover:scale-105">
                                 <div class="p-6 border-gray-200 md:border-1">
                                     <div class="flex items-center">
-                                        <BookOpenIcon class="w-8 h-8 text-gray-400"/>
+                                        <p class="w-8 h-8 text-gray-100">
+                                            <div v-html="item.logo"></div>
+                                        </p>
                                         <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold">
-                                            {{ item.title }}
+                                            {{ $t(item.title) }}
                                         </div>
                                     </div>
 
                                     <div class="ml-12">
                                         <div class="mt-2 text-sm text-gray-500">
-                                            {{ item.description }}
+                                            {{ $t(item.description) }}
                                         </div>
                                     </div>
                                 </div>
@@ -59,10 +59,3 @@ Vue.config.productionTip = false
         </div>
     </AppLayout>
 </template>
-<script>
-export default {
-    props: {
-        items: Object,
-    },
-}
-</script>

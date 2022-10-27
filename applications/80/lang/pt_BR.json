@@ -79,6 +79,7 @@
     "Schedule": "Agenda",
     "Kanban": "Kanban",
     "Messages": "Mensagens",
+    "Authorization": "Autorização",
     "Done.": "Feito.",
     "Save": "Salvar",
     "Saved.": "Salvo.",
@@ -191,5 +192,10 @@
     "Remove Photo" : "Remover foto" ,
     "Your email address is unverified." : "Seu endereço de email ainda não foi verificado." ,
     "Click here to re-send the verification email" : "Clique aqui para reenviar o email de verificação" ,
-    "A new verification link has been sent to your email address." : "Um novo link de verificação foi enviado ao seu endereço de email."
+    "A new verification link has been sent to your email address." : "Um novo link de verificação foi enviado ao seu endereço de email.",
+    "Select the app you want to use" : "Selecione a aplicação que você deseja utilizar",
+    "Apps are disponible according to the groups that do you participate, whose access is located in the upper right corner of your screen." : "Os aplicativos estão disponíveis conforme os grupos que você participa, cujo acesso se encontra no canto superior direito de sua tela.",
+    "Manage the registered users of the system." : "Gerencie os usuários registrados no sistema.",
+    "Manage the apps authorizations and permissions." : "Gerencie as autorizações e as permissões das aplicações.",
+    "" : ""
 }
