@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         $user = new User();
-        $user->name = 'SUPERADMIN';
+        $user->name = 'SUPERADMINISTRATOR';
         $user->email = 'admin@localhost';
         $user->password = Hash::make('password');
         $user->email_verified_at = Carbon::now();
@@ -31,6 +31,12 @@ class UserSeeder extends Seeder
         $user->ownedTeams()->save(Team::forceCreate([
             'user_id' => $superAdmin->id,
             'name' => $superAdmin->name,
+            'personal_team' => true,
+        ]));
+
+        $user->ownedTeams()->save(Team::forceCreate([
+            'user_id' => $superAdmin->id,
+            'name' => 'USERS',
             'personal_team' => true,
         ]));
     }
