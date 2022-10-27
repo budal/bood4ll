@@ -4,6 +4,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+use App\Http\Controllers\UsersController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,18 +31,10 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
-    Route::get('/apps', function () {   
-        return Inertia::render('Apps');
-    })->name('apps');
-    Route::get('/reports', function () {
-        return Inertia::render('Reports');
-    })->name('reports');
-    Route::get('/help', function () {
-        return Inertia::render('Help');
-    })->name('help');
+    Route::get('/dashboard', function () { return Inertia::render('Dashboard'); })->name('dashboard');
+    Route::get('/apps',  [UsersController::class, 'index'])->name('apps');
+    Route::get('/reports', function () { return Inertia::render('Reports'); })->name('reports');
+    Route::get('/help', function () { return Inertia::render('Help'); })->name('help');
 });
 
 Route::group(['middleware' => config('jetstream.middleware', ['web'])], function () {
