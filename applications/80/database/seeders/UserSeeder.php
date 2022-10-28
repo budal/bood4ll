@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
 
         $user->ownedTeams()->save(Team::forceCreate([
             'user_id' => $superAdmin->id,
-            'name' => 'USERS',
+            'name' => 'USER',
             'personal_team' => true,
         ]));
     }

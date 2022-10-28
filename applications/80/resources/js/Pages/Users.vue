@@ -12,10 +12,10 @@ export default {
 </script>
 
 <template>
-    <AppLayout title="Apps">
+    <AppLayout title="Users">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ $t('Apps') }}
+                {{ $t('Users') }}
             </h2>
         </template>
 
@@ -25,16 +25,12 @@ export default {
                     <div v-if="items">
                         <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
                             <div class="mt-2 text-2xl">
-                                {{ $t('Select the app you want to use') }}
-                            </div>
-
-                            <div class="mt-6 text-gray-500">
-                                {{ $t('Apps are disponible according to the groups that do you participate, whose access is located in the upper right corner of your screen.')}} 
+                                {{ $t('Select the user to manage') }}
                             </div>
                         </div>
-                        <div class="p-3 bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-3">
-                            <Link v-for="item in items" :href="route(item.route)" class="m-2 border duration-300 hover:bg-gray-200 hover:scale-105">
-                                <div class="p-6 border-gray-200 md:border-1">
+                        <div class="p-2 pl-9 pr-9 bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-1">
+                            <Link v-for="item in items" :href="route(item.route)" class="">
+                                <div class="p-2 border-gray-200 md:border-1 duration-500 hover:bg-gray-200 hover:scale-105">
                                     <div class="flex items-center">
                                         <p class="w-8 h-8 text-gray-100">
                                             <div v-html="item.logo"></div>

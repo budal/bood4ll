@@ -71,7 +71,7 @@ const logout = () => {
                                     <template #trigger>
                                         <span class="inline-flex rounded-md">
                                             <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:bg-gray-50 hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition">
-                                                {{ $page.props.user.current_team.name }}
+                                                {{ $t($page.props.user.current_team.name) }}
 
                                                 <svg
                                                     class="ml-2 -mr-0.5 h-4 w-4"
@@ -123,7 +123,7 @@ const logout = () => {
                                                                     stroke="currentColor"
                                                                     viewBox="0 0 24 24"
                                                                 ><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                                                                <div>{{ team.name }}</div>
+                                                                <div>{{ $t(team.name) }}</div>
                                                             </div>
                                                         </DropdownLink>
                                                     </form>

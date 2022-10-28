@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+use App\Http\Controllers\AppsController;
 use App\Http\Controllers\UsersController;
 
 /*
@@ -31,10 +32,10 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () { return Inertia::render('Dashboard'); })->name('dashboard');
-    Route::get('/apps',  [UsersController::class, 'index'])->name('apps');
-    Route::get('/reports', function () { return Inertia::render('Reports'); })->name('reports');
-    Route::get('/help', function () { return Inertia::render('Help'); })->name('help');
+    Route::get('dashboard', function () { return Inertia::render('Main/Dashboard'); })->name('dashboard');
+    Route::get('apps',  [AppsController::class, 'index'])->name('apps');
+    Route::get('reports', function () { return Inertia::render('Main/Reports'); })->name('reports');
+    Route::get('help', function () { return Inertia::render('Main/Help'); })->name('help');
 });
 
 Route::group(['middleware' => config('jetstream.middleware', ['web'])], function () {
@@ -47,13 +48,6 @@ Route::group(['middleware' => config('jetstream.middleware', ['web'])], function
             : null;
 
     Route::group(['middleware' => array_values(array_filter([$authMiddleware, $authSessionMiddleware]))], function () {
-        // Route::get('/user/notifications', [UserNotificationsController::class, 'index'])
-        //             ->name('notifications.index');
-
-        // Route::get('/user/messages', [UserMessagesController::class, 'index'])
-        //             ->name('messages.index');
-
-        // Route::get('/user/schedules', [UserSchedulesController::class, 'index'])
-        //             ->name('schedules.index');
+        Route::get('apps/users', [UsersController::class, 'index'])->name('apps/users');
     });
 });
