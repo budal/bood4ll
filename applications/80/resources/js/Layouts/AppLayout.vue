@@ -30,11 +30,11 @@ const logout = () => {
 
 <template>
     <div>
-        <Head :title=$t(title) />
+        <Head :title=$t(title).toUpperCase() />
 
         <Banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="flex flex-col h-screen overflow-hidden bg-gray-100">
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -313,16 +313,21 @@ const logout = () => {
             </nav>
 
             <!-- Page Heading -->
-            <header v-if="$slots.header" class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <header v-if="$slots.header" class="bg-white shadow uppercase">
+                <div class="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8">
                     <slot name="header" />
                 </div>
             </header>
 
             <!-- Page Content -->
-            <main>
+            <main class="flex-1 overflow-auto">
                 <slot />
             </main>
+
+            <!-- Page Footer -->
+            <footer class="w-full text-right pr-2 border-t border-grey text-sm">
+                <Link href="budal.dev" class="font-bold">budal.dev</Link>
+            </footer>
         </div>
     </div>
 </template>

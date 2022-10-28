@@ -32,8 +32,8 @@ export default {
                                 {{ $t('Apps are disponible according to the groups that do you participate, whose access is located in the upper right corner of your screen.')}} 
                             </div>
                         </div>
-                        <div class="p-3 bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-4">
-                            <Link v-for="item in items" :href="route(item.route)" class="m-2 border duration-300 hover:bg-gray-200 hover:scale-105">
+                        <div class="p-3 bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-3">
+                            <Link v-for="item in items" :href="route(item.route)" class="m-1 border duration-300 hover:bg-gray-200 hover:scale-105">
                                 <div class="p-6 border-gray-200 md:border-1">
                                     <div class="flex items-center">
                                         <p class="w-8 h-8 text-gray-100">
@@ -45,7 +45,7 @@ export default {
                                     </div>
 
                                     <div class="ml-12">
-                                        <div class="mt-2 text-sm text-gray-500">
+                                        <div class="mt-2 text-sm text-gray-500 text-justify">
                                             {{ $t(item.description) }}
                                         </div>
                                     </div>
